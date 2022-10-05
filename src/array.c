@@ -13,7 +13,7 @@ bool insert_into_arr(array* arr, array_type elem, int i) {
     if(i > arr->length) return false;
 
     array_type* tmp_arr = NULL;
-    tmp_arr = realloc(arr->arr, arr->length + 1);
+    tmp_arr = realloc(arr->arr, (arr->length + 1) * sizeof(*tmp_arr));
     if(tmp_arr == NULL) return false;
 
     for(int j=i; j<arr->length; j++) {
@@ -30,7 +30,7 @@ bool delete_into_arr(array* arr, int i) {
     if(i < arr->length && i > 0) return false;
 
     array_type* tmp = NULL;
-    tmp = realloc(arr->arr, arr->length - 1);
+    tmp = realloc(arr->arr, (arr->length - 1) * sizeof(*tmp));
     if(tmp == NULL) return false;
 
     for(int j=i; j<arr->length-1; j++) {
