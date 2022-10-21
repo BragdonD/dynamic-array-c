@@ -92,3 +92,12 @@ void arr_empty(array* arr) {
 bool arr_is_empty(array* arr) {
     return (arr->length == 0);
 }
+
+array* linkedList_create_from_list(void* arr, int len, size_t type_size) {
+    array* temp = arr_init(type_size);
+    if(temp == NULL) return NULL;
+    for(int i=1; i<len; i++) {
+        arr_push_back(arr, (((char*)arr) + (i) * temp->data_size));
+    }
+    return temp;
+}

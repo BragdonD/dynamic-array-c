@@ -20,5 +20,6 @@ void arr_empty(array* arr);
 void* arr_front(array* arr);
 void* arr_end(array* arr);
 bool arr_is_empty(array* arr);
+array* linkedList_create_from_list(void* arr, int len, size_t type_size);
 
 #endif
