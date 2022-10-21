@@ -4,14 +4,13 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-typedef int array_type;
-
 typedef struct array {
-    array_type* arr;
+    void* arr;
+    size_t data_size;
     int length;
 } array;
 
-array* init_arr();
+array* init_arr(size_t data_size);
 int arr_lenght(array* arr);
 bool insert_into_arr(array* arr, int elem, int i);
 bool delete_into_arr(array* arr, int i);
