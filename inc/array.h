@@ -2,7 +2,6 @@
 #define ARRAY_H
 
 #include <stdbool.h>
-#include <stdio.h>
 
 typedef struct array {
     void* arr;
