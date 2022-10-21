@@ -4,8 +4,8 @@
 
 int main(int argc, char const *argv[])
 {
-    array* arr = init_arr();
-    empty_arr(arr);
+    array* arr = arr_init(sizeof(int));
+    arr_empty(arr);
     free(arr);
     return 0;
 }

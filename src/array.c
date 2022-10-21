@@ -38,7 +38,7 @@ void* arr_pop_back(array* arr) {
     void* temp = NULL;
     void *data = NULL;
     if(arr == NULL) return NULL;
-    if(arr->length = 0) return NULL;
+    if(arr->length == 0) return NULL;
     data = arr_end(arr);
     temp = realloc(arr->arr, (arr->length - 1) * arr->data_size);
     if(temp == NULL) return NULL;
@@ -66,21 +66,23 @@ bool arr_insert(array* arr, int index, void* elem) {
 }
 
 void* arr_erase(array* arr, int index) {
-    if(arr->length == 0) return false;
-    if(index < arr->length && index > 0) return false;
+    if(arr->length == 0) return NULL;
+    if(index < arr->length && index > 0) return NULL;
 
     void* temp = NULL;
+    void* data = NULL;
     temp = realloc(arr->arr, (arr->length - 1) * arr->data_size);
-    if(temp == NULL) return false;
+    if(temp == NULL) return NULL;
 
     for(int j=index; j<arr->length-1; j++) {
         void* after = ((char*) arr->arr) + (j+1) * arr->data_size;
         void* before = ((char*) temp) + (j) * arr->data_size;
         memcpy(before, after, arr->data_size);
     }
+    data = ((char*) temp) + (index) * arr->data_size;
     arr->arr = temp;
     arr->length -= 1;
-    return true;
+    return data;
 }
 
 void arr_swapp(array* arr1, array* arr2);
