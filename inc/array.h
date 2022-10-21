@@ -7,14 +7,19 @@
 typedef struct array {
     void* arr;
     size_t data_size;
-    int length;
+    size_t length;
 } array;
 
-array* init_arr(size_t data_size);
-int arr_lenght(array* arr);
-bool insert_into_arr(array* arr, int elem, int i);
-bool delete_into_arr(array* arr, int i);
-bool empty_arr(array* arr);
-void print_arr(array* arr); ///Need to be edited each time the type is changed.
+array* arr_init(size_t data_size);
+size_t arr_lenght(array* arr);
+bool arr_push_back(array* arr, void* elem);
+void* arr_pop_back(array* arr);
+bool arr_insert(array* arr, int index, void* elem);
+void* arr_erase(array* arr, int index);
+void arr_swapp(array* arr1, array* arr2);
+void arr_empty(array* arr);
+void* arr_front(array* arr);
+void* arr_end(array* arr);
+bool arr_is_empty(array* arr);
 
 #endif
