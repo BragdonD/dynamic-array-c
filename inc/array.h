@@ -20,6 +20,7 @@ void arr_free(array *arr);
 size_t arr_lenght(array* arr);
 void* arr_front(array* arr);
 void* arr_end(array* arr);
+void* arr_get(array* arr, int index);
 bool arr_is_empty(array* arr);
 
 /// Operation functions

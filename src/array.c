@@ -151,3 +151,13 @@ array* linkedList_create_from_list(void* arr, int len, size_t type_size) {
 void arr_free(array *arr) {
     free(arr);
 }
+
+/// @brief Function to get an element from an array at a given index.
+/// @param arr The array to retrieve the element from.
+/// @param index The index of the element to retrieve inside the array.
+/// @return a pointer toward the data store at the given index. Return NULL in case of an error.
+void* arr_get(array* arr, int index) {
+    if(arr_is_empty(arr)) return NULL;
+    if(index > arr_lenght(arr) || index < 0) return NULL;
+    return ((char*) arr->arr) + (index) * arr->data_size;
+}
